@@ -22,4 +22,14 @@
         <module>AccountSystemWeb</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.17.RELEASE</version>
+        </dependency>
+    </dependencies>
+
+
+
 </project>
