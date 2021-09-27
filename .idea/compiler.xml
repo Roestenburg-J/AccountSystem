@@ -14,7 +14,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AccountSystemWeb" target="8" />
+      <module name="AccountSystemWebSpringBoot" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -24,6 +24,7 @@
       <module name="AccountSystemRepository" options="-parameters" />
       <module name="AccountSystemTranslator" options="-parameters" />
       <module name="AccountSystemWeb" options="-parameters" />
+      <module name="AccountSystemWebSpringBoot" options="-parameters" />
     </option>
   </component>
 </project>
