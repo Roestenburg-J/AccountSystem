@@ -6,19 +6,19 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "MEMBER")
+@Table(name = "ACCOUNT_TRANSACTION")
 public class AccountTransaction implements Serializable {
 
     @Id
-    @Column(name = "MEM_ID")
-    private long memID;
+    @Column(name = "ACC_TRANSACT_ID")
+    private long transactID;
 
-    @Column(name = "MEM_NAME")
-    private String memName;
+    @Column(name = "ACC_TRANSACT_DATE")
+    private LocalDate transactDate;
 
-    @Column(name = "MEM_SURNAME")
-    private String memSurname;
+    @Column(name = "ACC_TRANSACT_VALUE")
+    private String transactValue;
 
-    @Column(name = "MEM_DOB")
-    private LocalDate memDOB;
+    @Column(name = "ACC_ID")
+    private long accID;
 }
