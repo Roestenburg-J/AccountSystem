@@ -74,19 +74,6 @@ public class Account implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Account)) return false;
-        Account account = (Account) o;
-        return accID == account.accID && Float.compare(account.accBalance, accBalance) == 0 && typeID == account.typeID && memberID == account.memberID && startDate.equals(account.startDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(accID, accBalance, startDate, typeID, memberID);
-    }
-
-    @Override
     public String toString() {
         return "Account{" +
                 "accID=" + accID +
