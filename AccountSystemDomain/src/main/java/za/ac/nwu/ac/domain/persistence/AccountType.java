@@ -8,6 +8,7 @@ import java.util.Objects;
 @Table(name = "ACCOUNT_TYPE")
 public class AccountType implements Serializable {
 
+    private static final long serialVersionUID = 7323243789334252048L;
     @Id
     @Column(name = "ACC_TYPE_ID")
     private long typeID;

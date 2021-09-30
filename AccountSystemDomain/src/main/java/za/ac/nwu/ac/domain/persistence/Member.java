@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Table(name = "MEMBER")
 public class Member implements Serializable {
 
+    private static final long serialVersionUID = -223199133093568577L;
     @Id
     @Column(name = "MEM_ID")
     private long memID;

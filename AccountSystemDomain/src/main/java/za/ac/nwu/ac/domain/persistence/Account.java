@@ -9,6 +9,7 @@ import java.util.Objects;
 @Table(name = "ACCOUNT")
 public class Account implements Serializable {
 
+    private static final long serialVersionUID = -2690647136011659583L;
     @Id
     @Column(name = "ACC_ID")
     private long accID;

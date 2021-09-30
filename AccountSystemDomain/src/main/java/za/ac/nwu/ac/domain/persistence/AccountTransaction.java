@@ -10,6 +10,7 @@ import java.util.Objects;
 @Table(name = "ACCOUNT_TRANSACTION")
 public class AccountTransaction implements Serializable {
 
+    private static final long serialVersionUID = 1650586227852005297L;
     @Id
     @Column(name = "ACC_TRANSACT_ID")
     private long transactID;
