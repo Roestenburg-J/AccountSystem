@@ -54,7 +54,7 @@ public class AccountTransaction implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_ID")
-    public Account getAccID() {
+    public Account getAcc() {
         return acc;
     }
 

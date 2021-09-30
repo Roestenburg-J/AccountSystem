@@ -43,13 +43,13 @@ public class Account implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_TYPE_ID")
-    public AccountType getTypeID() {
+    public AccountType getType() {
         return type;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEM_ID")
-    public Member getMemberID() {
+    public Member getMember() {
         return member;
     }
 
