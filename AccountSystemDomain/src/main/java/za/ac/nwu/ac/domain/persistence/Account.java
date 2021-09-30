@@ -41,12 +41,14 @@ public class Account implements Serializable {
         return startDate;
     }
 
-    @Column(name = "ACC_TYPE_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ACC_TYPE_ID")
     public AccountType getTypeID() {
         return type;
     }
 
-    @Column(name = "MEM_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MEM_ID")
     public Member getMemberID() {
         return member;
     }

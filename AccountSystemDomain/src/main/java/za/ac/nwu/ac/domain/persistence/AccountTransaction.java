@@ -52,7 +52,8 @@ public class AccountTransaction implements Serializable {
         this.transactValue = transactValue;
     }
 
-    @Column(name = "ACC_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ACC_ID")
     public Account getAccID() {
         return acc;
     }
