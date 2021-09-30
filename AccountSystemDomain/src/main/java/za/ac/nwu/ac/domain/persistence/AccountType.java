@@ -9,11 +9,8 @@ import java.util.Objects;
 public class AccountType implements Serializable {
 
     private static final long serialVersionUID = 7323243789334252048L;
-    @Id
-    @Column(name = "ACC_TYPE_ID")
-    private long typeID;
 
-    @Column(name = "ACC_TYPE")
+    private long typeID;
     private String type;
 
     public AccountType(long typeID, String type) {
@@ -21,10 +18,13 @@ public class AccountType implements Serializable {
         this.type = type;
     }
 
+    @Id
+    @Column(name = "ACC_TYPE_ID")
     public long getTypeID() {
         return typeID;
     }
 
+    @Column(name = "ACC_TYPE")
     public String getType() {
         return type;
     }

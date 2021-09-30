@@ -10,48 +10,45 @@ import java.util.Objects;
 public class Account implements Serializable {
 
     private static final long serialVersionUID = -2690647136011659583L;
-    @Id
-    @Column(name = "ACC_ID")
+
     private long accID;
-
-    @Column(name = "ACC_BALANCE")
     private float accBalance;
-
-    @Column(name = "ACC_START_DATE")
     private LocalDate startDate;
+    private AccountType type;
+    private Member member;
 
-    @Column(name = "ACC_TYPE_ID")
-    private long typeID;
-
-    @Column(name = "MEM_ID")
-    private long memberID;
-
-    public Account(long accID, float accBalance, LocalDate startDate, long typeID, long memberID) {
+    public Account(long accID, float accBalance, LocalDate startDate, AccountType type, Member member) {
         this.accID = accID;
         this.accBalance = accBalance;
         this.startDate = startDate;
-        this.typeID = typeID;
-        this.memberID = memberID;
+        this.type = type;
+        this.member = member;
     }
 
+    @Id
+    @Column(name = "ACC_ID")
     public long getAccID() {
         return accID;
     }
 
+    @Column(name = "ACC_BALANCE")
     public float getAccBalance() {
         return accBalance;
     }
 
+    @Column(name = "ACC_START_DATE")
     public LocalDate getStartDate() {
         return startDate;
     }
 
-    public long getTypeID() {
-        return typeID;
+    @Column(name = "ACC_TYPE_ID")
+    public AccountType getTypeID() {
+        return type;
     }
 
-    public long getMemberID() {
-        return memberID;
+    @Column(name = "MEM_ID")
+    public Member getMemberID() {
+        return member;
     }
 
     public void setAccID(long accID) {
@@ -66,12 +63,12 @@ public class Account implements Serializable {
         this.startDate = startDate;
     }
 
-    public void setTypeID(long typeID) {
-        this.typeID = typeID;
+    public void setTypeID(AccountType type) {
+        this.type = type;
     }
 
-    public void setMemberID(long memberID) {
-        this.memberID = memberID;
+    public void setMemberID(Member member) {
+        this.member = member;
     }
 
     @Override
@@ -80,8 +77,8 @@ public class Account implements Serializable {
                 "accID=" + accID +
                 ", accBalance=" + accBalance +
                 ", startDate=" + startDate +
-                ", typeID=" + typeID +
-                ", memberID=" + memberID +
+                ", type=" + type +
+                ", member=" + member +
                 '}';
     }
 }

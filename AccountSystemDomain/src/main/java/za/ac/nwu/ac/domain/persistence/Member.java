@@ -10,17 +10,10 @@ import java.time.LocalDate;
 public class Member implements Serializable {
 
     private static final long serialVersionUID = -223199133093568577L;
-    @Id
-    @Column(name = "MEM_ID")
+
     private long memID;
-
-    @Column(name = "MEM_NAME")
     private String memName;
-
-    @Column(name = "MEM_SURNAME")
     private String memSurname;
-
-    @Column(name = "MEM_DOB")
     private LocalDate memDOB;
 
     public Member(long memID, String memName, String memSurname, LocalDate memDOB) {
@@ -30,6 +23,8 @@ public class Member implements Serializable {
         this.memDOB = memDOB;
     }
 
+    @Id
+    @Column(name = "MEM_ID")
     public long getMemID() {
         return memID;
     }
@@ -38,6 +33,7 @@ public class Member implements Serializable {
         this.memID = memID;
     }
 
+    @Column(name = "MEM_NAME")
     public String getMemName() {
         return memName;
     }
@@ -46,6 +42,7 @@ public class Member implements Serializable {
         this.memName = memName;
     }
 
+    @Column(name = "MEM_SURNAME")
     public String getMemSurname() {
         return memSurname;
     }
@@ -54,6 +51,7 @@ public class Member implements Serializable {
         this.memSurname = memSurname;
     }
 
+    @Column(name = "MEM_DOB")
     public LocalDate getMemDOB() {
         return memDOB;
     }

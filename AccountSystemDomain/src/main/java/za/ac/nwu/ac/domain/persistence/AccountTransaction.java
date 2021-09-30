@@ -11,26 +11,21 @@ import java.util.Objects;
 public class AccountTransaction implements Serializable {
 
     private static final long serialVersionUID = 1650586227852005297L;
-    @Id
-    @Column(name = "ACC_TRANSACT_ID")
+
     private long transactID;
-
-    @Column(name = "ACC_TRANSACT_DATE")
     private LocalDate transactDate;
-
-    @Column(name = "ACC_TRANSACT_VALUE")
     private String transactValue;
+    private Account acc;
 
-    @Column(name = "ACC_ID")
-    private long accID;
-
-    public AccountTransaction(long transactID, LocalDate transactDate, String transactValue, long accID) {
+    public AccountTransaction(long transactID, LocalDate transactDate, String transactValue, Account acc) {
         this.transactID = transactID;
         this.transactDate = transactDate;
         this.transactValue = transactValue;
-        this.accID = accID;
+        this.acc = acc;
     }
 
+    @Id
+    @Column(name = "ACC_TRANSACT_ID")
     public long getTransactID() {
         return transactID;
     }
@@ -39,6 +34,7 @@ public class AccountTransaction implements Serializable {
         this.transactID = transactID;
     }
 
+    @Column(name = "ACC_TRANSACT_DATE")
     public LocalDate getTransactDate() {
         return transactDate;
     }
@@ -47,6 +43,7 @@ public class AccountTransaction implements Serializable {
         this.transactDate = transactDate;
     }
 
+    @Column(name = "ACC_TRANSACT_VALUE")
     public String getTransactValue() {
         return transactValue;
     }
@@ -55,12 +52,13 @@ public class AccountTransaction implements Serializable {
         this.transactValue = transactValue;
     }
 
-    public long getAccID() {
-        return accID;
+    @Column(name = "ACC_ID")
+    public Account getAccID() {
+        return acc;
     }
 
-    public void setAccID(long accID) {
-        this.accID = accID;
+    public void setAccID(Account accID) {
+        this.acc = acc;
     }
 
     @Override
@@ -69,7 +67,7 @@ public class AccountTransaction implements Serializable {
                 "transactID=" + transactID +
                 ", transactDate=" + transactDate +
                 ", transactValue='" + transactValue + '\'' +
-                ", accID=" + accID +
+                ", acc=" + acc +
                 '}';
     }
 }
