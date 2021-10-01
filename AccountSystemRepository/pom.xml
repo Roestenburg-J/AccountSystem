@@ -28,9 +28,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <scope>compile</scope>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
         </dependency>
     </dependencies>
 

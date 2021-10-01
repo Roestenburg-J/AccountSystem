@@ -77,18 +77,25 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                 <version>5.1.8.RELEASE</version>
             </dependency>
             <dependency>
-                <groupId>com.microsoft.sqlserver</groupId>
-                <artifactId>mssql-jdbc</artifactId>
-                <version>9.4</version>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc7</artifactId>
+                <scope>compile</scope>
+                <version>12.1.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>hand-china-repo</id>
+            <name>HandChinaRepo</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
+        </repository>
+    </repositories>
+
 </project>
