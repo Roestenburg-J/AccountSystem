@@ -1,1 +1,5 @@
 za\ac\nwu\repo\config\RepositoryConfig.class
+za\ac\nwu\repo\persistence\AccountRepository.class
+za\ac\nwu\repo\persistence\AccountTypeRepository.class
+za\ac\nwu\repo\persistence\MemberRepository.class
+za\ac\nwu\repo\persistence\AccountTransactionRepository.class
