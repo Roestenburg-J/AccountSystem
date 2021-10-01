@@ -26,6 +26,8 @@ public class Account implements Serializable {
     }
 
     @Id
+    @SequenceGenerator(name = "GENERIC_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
     @Column(name = "ACC_ID")
     public long getAccID() {
         return accID;

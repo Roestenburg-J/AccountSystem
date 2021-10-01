@@ -24,6 +24,8 @@ public class Member implements Serializable {
     }
 
     @Id
+    @SequenceGenerator(name = "GENERIC_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
     @Column(name = "MEM_ID")
     public long getMemID() {
         return memID;
