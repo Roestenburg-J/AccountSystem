@@ -85,4 +85,5 @@ public class Member implements Serializable {
     public int hashCode() {
         return Objects.hash(memID, memName, memSurname, memDOB);
     }
+
 }

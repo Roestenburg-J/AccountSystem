@@ -40,6 +40,7 @@ public class AccountType implements Serializable {
         this.type = type;
     }
 
+
     @Override
     public String toString() {
         return "AccountType{" +
@@ -60,4 +61,6 @@ public class AccountType implements Serializable {
     public int hashCode() {
         return Objects.hash(typeID, type);
     }
+
+
 }

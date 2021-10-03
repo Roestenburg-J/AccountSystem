@@ -67,11 +67,11 @@ public class Account implements Serializable {
         this.startDate = startDate;
     }
 
-    public void setTypeID(AccountType type) {
+    public void setType(AccountType type) {
         this.type = type;
     }
 
-    public void setMemberID(Member member) {
+    public void setMember(Member member) {
         this.member = member;
     }
 
@@ -98,4 +98,6 @@ public class Account implements Serializable {
     public int hashCode() {
         return Objects.hash(accID, accBalance, startDate, type, member);
     }
+
+
 }

@@ -54,6 +54,10 @@ public class AccountTransaction implements Serializable {
         this.transactValue = transactValue;
     }
 
+    public void setAcc(Account acc) {
+        this.acc = acc;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_ID")
     public Account getAcc() {
@@ -86,4 +90,8 @@ public class AccountTransaction implements Serializable {
     public int hashCode() {
         return Objects.hash(transactID, transactDate, transactValue, acc);
     }
+
+
+
+
 }
