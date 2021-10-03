@@ -4,6 +4,7 @@ package za.ac.nwu.ac.domain.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "MEMBER")
@@ -70,5 +71,18 @@ public class Member implements Serializable {
                 ", memSurname='" + memSurname + '\'' +
                 ", memDOB=" + memDOB +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Member)) return false;
+        Member member = (Member) o;
+        return memID == member.memID && memName.equals(member.memName) && memSurname.equals(member.memSurname) && memDOB.equals(member.memDOB);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memID, memName, memSurname, memDOB);
     }
 }

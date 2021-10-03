@@ -73,4 +73,17 @@ public class AccountTransaction implements Serializable {
                 ", acc=" + acc +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AccountTransaction)) return false;
+        AccountTransaction that = (AccountTransaction) o;
+        return transactID == that.transactID && transactDate.equals(that.transactDate) && transactValue.equals(that.transactValue) && acc.equals(that.acc);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transactID, transactDate, transactValue, acc);
+    }
 }

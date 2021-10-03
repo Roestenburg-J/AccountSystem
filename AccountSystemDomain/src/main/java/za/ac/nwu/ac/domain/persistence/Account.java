@@ -85,4 +85,17 @@ public class Account implements Serializable {
                 ", member=" + member +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return accID == account.accID && Float.compare(account.accBalance, accBalance) == 0 && startDate.equals(account.startDate) && type.equals(account.type) && member.equals(account.member);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accID, accBalance, startDate, type, member);
+    }
 }
