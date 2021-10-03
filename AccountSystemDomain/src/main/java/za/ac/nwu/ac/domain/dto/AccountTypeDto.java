@@ -1,5 +1,7 @@
 package za.ac.nwu.ac.domain.dto;
 
+import za.ac.nwu.ac.domain.persistence.AccountType;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ public class AccountTypeDto implements Serializable {
 
     private String accountType;
 
-    public AccountTypeDto(String accountType) {
+    public AccountTypeDto(AccountType accountType) {
         this.accountType = accountType;
     }
 
