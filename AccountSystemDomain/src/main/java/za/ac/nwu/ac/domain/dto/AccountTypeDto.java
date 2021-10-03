@@ -9,17 +9,17 @@ public class AccountTypeDto implements Serializable {
 
     private static final long serialVersionUID = -7731154715176897719L;
 
-    private String accountType;
+    private AccountType accountType;
 
     public AccountTypeDto(AccountType accountType) {
         this.accountType = accountType;
     }
 
-    public String getAccountType() {
+    public AccountType getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(String accountType) {
+    public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
     }
 
@@ -35,6 +35,5 @@ public class AccountTypeDto implements Serializable {
     public int hashCode() {
         return Objects.hash(accountType);
     }
-
 
 }

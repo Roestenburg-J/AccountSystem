@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.translator.AccountTypeTranslator;
-import za.ac.nwu.repo.persistence.AccountTypeRepository;
+import za.ac.nwu.ac.repo.persistence.AccountTypeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
