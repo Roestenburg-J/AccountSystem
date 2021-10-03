@@ -1,20 +1,38 @@
 package za.ac.nwu.ac.domain.service;
 
-public class GeneralResponse<String> {
-    private boolean successful = false;
+import java.io.Serializable;
+import java.util.Objects;
 
-    private java.lang.String payload = "No types Found";
+public class GeneralResponse<T> implements Serializable {
 
-    public GeneralResponse(boolean successful, java.lang.String payload) {
-        this.successful = successful;
-        this.payload = payload;
+    private final boolean successful;
+    private final transient T payload;
+
+    public GeneralResponse(boolean successful, T payload) {
+        this.successful=successful;
+        this.payload=payload;
     }
 
-    public boolean getSuccessful(){
-        return successful;
+    public boolean isSuccessful(){return successful;}
+
+    public T getPayLoad(){return payload;}
+
+    @Override
+    public boolean equals(Object o){
+        if (this==o) return true;
+        if (o==null||getClass()!=o.getClass()) return false;
+        GeneralResponse<?> that =(GeneralResponse<?>) o;
+        return successful == that.successful && Objects.equals(payload,that.payload);
     }
 
-    public java.lang.String getPayload(){
-        return  payload;
+    @Override
+    public int hashCode(){return Objects.hash(successful,payload);}
+
+    @Override
+    public String toString(){
+        return "GeneralResponse("+
+                ", successful "+successful +
+                ", payload "+payload +
+                ")";
     }
 }
