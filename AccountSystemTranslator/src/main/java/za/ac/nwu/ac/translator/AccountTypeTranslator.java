@@ -8,4 +8,6 @@ import java.util.List;
 @Component
 public interface AccountTypeTranslator {
     List<AccountTypeDto> getAllAccountTypes();
+
+    AccountTypeDto create(AccountTypeDto accountTypeDto);
 }

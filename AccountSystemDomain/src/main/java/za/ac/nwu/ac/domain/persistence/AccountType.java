@@ -1,7 +1,5 @@
 package za.ac.nwu.ac.domain.persistence;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,11 +12,23 @@ public class AccountType implements Serializable {
     private static final long serialVersionUID = 7323243789334252048L;
 
     private long typeID;
-    private String type;
+    private String typeName;
+    private String mnemonic;
 
-    public AccountType(long typeID, String type) {
+
+    public AccountType() {
+
+    }
+
+    public AccountType(long typeID, String typeName, String mnemonic) {
         this.typeID = typeID;
-        this.type = type;
+        this.typeName = typeName;
+        this.mnemonic = mnemonic;
+    }
+
+    public AccountType(String typeName, String mnemonic) {
+        this.typeName = typeName;
+        this.mnemonic = mnemonic;
     }
 
     @Id
@@ -29,26 +39,26 @@ public class AccountType implements Serializable {
         return typeID;
     }
 
-    @Column(name = "ACC_TYPE")
-    public String getType() {
-        return type;
+    @Column(name = "ACC_TYPE_NAME")
+    public String getTypeName() {
+        return typeName;
+    }
+
+    @Column(name = "ACC_MNEMONIC")
+    public String getMnemonic() {
+        return mnemonic;
     }
 
     public void setTypeID(long typeID) {
         this.typeID = typeID;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
-
-    @Override
-    public String toString() {
-        return "AccountType{" +
-                "typeID=" + typeID +
-                ", type='" + type + '\'' +
-                '}';
+    public void setMnemonic(String mnemonic) {
+        this.mnemonic = mnemonic;
     }
 
     @Override
@@ -56,13 +66,11 @@ public class AccountType implements Serializable {
         if (this == o) return true;
         if (!(o instanceof AccountType)) return false;
         AccountType that = (AccountType) o;
-        return typeID == that.typeID && type.equals(that.type);
+        return typeID == that.typeID && typeName.equals(that.typeName) && mnemonic.equals(that.mnemonic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(typeID, type);
+        return Objects.hash(typeID, typeName, mnemonic);
     }
-
-
 }
