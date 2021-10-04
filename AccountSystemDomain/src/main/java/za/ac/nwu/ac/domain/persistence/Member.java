@@ -24,6 +24,9 @@ public class Member implements Serializable {
         this.memDOB = memDOB;
     }
 
+    public Member(String memName, String memSurname, LocalDate memDob) {
+    }
+
     @Id
     @SequenceGenerator(name = "GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
