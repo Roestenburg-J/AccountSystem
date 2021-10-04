@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "MEMBER")
@@ -16,6 +17,7 @@ public class Member implements Serializable {
     private String memName;
     private String memSurname;
     private LocalDate memDOB;
+    private Set<Account> accounts;
 
     public Member(){
 
@@ -67,6 +69,15 @@ public class Member implements Serializable {
     @Column(name = "MEM_DOB")
     public LocalDate getMemDOB() {
         return memDOB;
+    }
+
+    @OneToMany(targetEntity = Account.class, fetch = FetchType.LAZY, mappedBy = "accMember", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    public Set<Account> getAccounts(){
+        return accounts;
+    }
+
+    public void setAccounts(Set<Account> accounts){
+        this.accounts = accounts;
     }
 
     public void setMemDOB(LocalDate memDOB) {

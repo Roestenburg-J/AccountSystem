@@ -9,5 +9,5 @@ import java.util.List;
 public interface AccountTranslator {
     List<AccountDto> getAllAccounts();
 
-    //AccountDto create(AccountDto accountDto);
+    AccountDto create(AccountDto accountDto);
 }

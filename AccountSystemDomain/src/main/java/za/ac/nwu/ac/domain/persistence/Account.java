@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "ACCOUNT")
@@ -16,6 +17,8 @@ public class Account implements Serializable {
     private LocalDate startDate;
     private AccountType accType;
     private Member accMember;
+
+    private Set<AccountTransaction> accountTransactions;
 
     public Account(){
 
@@ -60,10 +63,19 @@ public class Account implements Serializable {
         return accType;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name = "MEM_ID")
     public Member getAccMember() {
         return accMember;
+    }
+
+    @OneToMany(targetEntity = AccountTransaction.class, fetch = FetchType.LAZY, mappedBy = "transactAccount", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    public Set<AccountTransaction> getAccountTransactions(){
+        return accountTransactions;
+    }
+
+    public void setAccountTransactions(Set<AccountTransaction> accountTransactions){
+        this.accountTransactions = accountTransactions ;
     }
 
     public void setAccID(long accID) {

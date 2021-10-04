@@ -15,6 +15,8 @@ public class AccountType implements Serializable {
     private String typeName;
     private String mnemonic;
 
+    private Set<Account> accounts;
+
 
     public AccountType() {
 
@@ -47,6 +49,15 @@ public class AccountType implements Serializable {
     @Column(name = "ACC_MNEMONIC")
     public String getMnemonic() {
         return mnemonic;
+    }
+
+    @OneToMany(targetEntity = Account.class, fetch = FetchType.LAZY, mappedBy = "accType", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    public Set<Account> getAccounts(){
+        return accounts;
+    }
+
+    public void setAccounts(Set<Account> accounts){
+        this.accounts = accounts;
     }
 
     public void setTypeID(long typeID) {

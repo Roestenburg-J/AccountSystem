@@ -1,6 +1,7 @@
 package za.ac.nwu.ac.web.sb.controller;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,40 +20,39 @@ import java.util.List;
 @RequestMapping("account")
 public class AccountController {
 
-    private final FetchAccountFlow fetchAccountTypeFlow;
-   // private final CreateAccountFlow createAccountTypeFlow;
+    private final FetchAccountFlow fetchAccountFlow;
+    private final CreateAccountFlow createAccountFlow;
 
     @Autowired
-    public AccountController(FetchAccountFlow fetchAccountTypeFlow){//@Qualifier("createAccountFlowName") CreateAccountFlow createAccountTypeFlow) {
-        this.fetchAccountTypeFlow = fetchAccountTypeFlow;
-       // this.createAccountTypeFlow = createAccountTypeFlow;
+    public AccountController(FetchAccountFlow fetchAccountFlow,@Qualifier("createAccountFlowName") CreateAccountFlow createAccountFlow) {
+        this.fetchAccountFlow = fetchAccountFlow;
+        this.createAccountFlow = createAccountFlow;
     }
 
-
     @GetMapping("/all")
-    @ApiOperation(value = "Gets all account types", notes = "Returns a list of configured accounts")
+    @ApiOperation(value = "Gets all Accounts", notes = "Returns a list of accounts")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Account Types Returned", response = GeneralResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
             @ApiResponse(code = 404, message = "Not Found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
     public ResponseEntity<GeneralResponse<List<AccountDto>>> getAll(){
-        List<AccountDto> accountTypes = fetchAccountTypeFlow.getAllAccounts();
-        GeneralResponse<List<AccountDto>> response = new GeneralResponse<>(true, accountTypes);
+        List<AccountDto> accounts = fetchAccountFlow.getAllAccounts();
+        GeneralResponse<List<AccountDto>> response = new GeneralResponse<>(true, accounts);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-//        @PostMapping("")
-//        @ApiOperation(value = "Creates a new account type", notes = "Creates a new Account Type for the account system")
-//        @ApiResponses(value = {
-//                @ApiResponse(code = 200, message = "Account Type was created successfully", response = GeneralResponse.class),
-//                @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
-//                @ApiResponse(code = 404, message = "Not Found", response = GeneralResponse.class),
-//                @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
-//        public ResponseEntity<GeneralResponse<AccountTypeDto>> create(
-//                @ApiParam(value = "Request body to create new Account type.", required = true)
-//                @RequestBody AccountTypeDto accountType){
-//            AccountTypeDto AccountTypeResponse = createAccountTypeFlow.create(accountType);
-//            GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, AccountTypeResponse);
-//            return new ResponseEntity<>(response, HttpStatus.CREATED);
-//        }
+        @PostMapping("")
+        @ApiOperation(value = "Creates a new Account", notes = "Creates a new Account for the account system")
+        @ApiResponses(value = {
+                @ApiResponse(code = 200, message = "Account was created successfully", response = GeneralResponse.class),
+                @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+                @ApiResponse(code = 404, message = "Not Found", response = GeneralResponse.class),
+                @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
+        public ResponseEntity<GeneralResponse<AccountDto>> create(
+                @ApiParam(value = "Request body to create new Account.", required = true)
+                @RequestBody AccountDto account){
+            AccountDto AccountResponse = createAccountFlow.create(account);
+            GeneralResponse<AccountDto> response = new GeneralResponse<>(true, AccountResponse);
+            return new ResponseEntity<>(response, HttpStatus.CREATED);
+        }
 }

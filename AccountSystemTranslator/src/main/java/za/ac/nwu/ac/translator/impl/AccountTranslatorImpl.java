@@ -13,7 +13,6 @@ import java.util.List;
 @Component
 public class AccountTranslatorImpl implements AccountTranslator{
 
-
     private final AccountRepository accountRepository;
 
     @Autowired
@@ -36,15 +35,13 @@ public class AccountTranslatorImpl implements AccountTranslator{
     }
 
 
-
-
-//    @Override
-//    public MemberDto create(MemberDto memberDto){
-//        try {
-//            Member member = memberRepository.save(memberDto.getMember());
-//            return new MemberDto(member);
-//        }catch (Exception e){
-//            throw new RuntimeException("Unable to save to the DB", e);
-//        }
-//    }
+    @Override
+    public AccountDto create(AccountDto accountDto){
+        try {
+            Account account = accountRepository.save(accountDto.getAccount());
+            return new AccountDto(account);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to save to the DB", e);
+        }
+    }
 }

@@ -15,13 +15,13 @@ public class AccountTransaction implements Serializable {
     private long transactID;
     private LocalDate transactDate;
     private String transactValue;
-    private Account acc;
+    private Account transactAccount;
 
-    public AccountTransaction(long transactID, LocalDate transactDate, String transactValue, Account acc) {
+    public AccountTransaction(long transactID, LocalDate transactDate, String transactValue, Account transactAccount) {
         this.transactID = transactID;
         this.transactDate = transactDate;
         this.transactValue = transactValue;
-        this.acc = acc;
+        this.transactAccount = transactAccount;
     }
 
     @Id
@@ -54,19 +54,16 @@ public class AccountTransaction implements Serializable {
         this.transactValue = transactValue;
     }
 
-    public void setAcc(Account acc) {
-        this.acc = acc;
+    public void setTransactAccount(Account transactAccount) {
+        this.transactAccount = transactAccount;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_ID")
-    public Account getAcc() {
-        return acc;
+    public Account getTransactAccount() {
+        return transactAccount;
     }
 
-    public void setAccID(Account accID) {
-        this.acc = acc;
-    }
 
     @Override
     public String toString() {
@@ -74,7 +71,7 @@ public class AccountTransaction implements Serializable {
                 "transactID=" + transactID +
                 ", transactDate=" + transactDate +
                 ", transactValue='" + transactValue + '\'' +
-                ", acc=" + acc +
+                ", transactAccount=" + transactAccount +
                 '}';
     }
 
@@ -83,12 +80,12 @@ public class AccountTransaction implements Serializable {
         if (this == o) return true;
         if (!(o instanceof AccountTransaction)) return false;
         AccountTransaction that = (AccountTransaction) o;
-        return transactID == that.transactID && transactDate.equals(that.transactDate) && transactValue.equals(that.transactValue) && acc.equals(that.acc);
+        return transactID == that.transactID && transactDate.equals(that.transactDate) && transactValue.equals(that.transactValue) && transactAccount.equals(that.transactAccount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactID, transactDate, transactValue, acc);
+        return Objects.hash(transactID, transactDate, transactValue, transactAccount);
     }
 
 

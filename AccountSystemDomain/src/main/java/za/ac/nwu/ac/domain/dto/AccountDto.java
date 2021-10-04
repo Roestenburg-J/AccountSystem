@@ -1,5 +1,6 @@
 package za.ac.nwu.ac.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.Account;
@@ -35,6 +36,8 @@ public class AccountDto implements Serializable {
         this.setAccType(account.getAccType());
         this.setAccMember(account.getAccMember());
     }
+
+
     @ApiModelProperty(position = 1,
             value = "Account Balance",
             name = "Balance",
@@ -47,11 +50,11 @@ public class AccountDto implements Serializable {
         return accBalance;
     }
 
-    @ApiModelProperty(position = 1,
+    @ApiModelProperty(position = 2,
             value = "Account Start Date",
             name = "Start Date",
             notes = "Start date of the Account",
-            dataType = "java.time.LocalDate",
+            dataType = "java.lang.String",
             example = "2021-08-08",
             allowEmptyValue = false,
             required = true)
@@ -59,11 +62,11 @@ public class AccountDto implements Serializable {
         return startDate;
     }
 
-    @ApiModelProperty(position = 1,
+    @ApiModelProperty(position = 3,
             value = "Account Type",
             name = "Type",
             notes = "Type of the Account",
-            dataType = "AccountType",
+            dataType = "java.lang.String",
             example = "Miles, Miles",
             allowEmptyValue = false,
             required = true)
@@ -71,11 +74,11 @@ public class AccountDto implements Serializable {
         return accType;
     }
 
-    @ApiModelProperty(position = 1,
+    @ApiModelProperty(position = 4,
             value = "Account Member",
             name = "Member",
             notes = "Owner of the Account",
-            dataType = "Member",
+            dataType = "java.lang.string",
             example = "John, Stone, 2000-01-01",
             allowEmptyValue = false,
             required = true)
@@ -110,5 +113,10 @@ public class AccountDto implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(accBalance, startDate, accType, accMember);
+    }
+
+    @JsonIgnore
+    public Account getAccount() {
+        return new Account(getAccBalance(), getStartDate(),getAccType(),getAccMember());
     }
 }

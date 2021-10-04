@@ -64,7 +64,7 @@ public class MemberDto implements Serializable {
             value = "Member DOB",
             name = "Date of Birth",
             notes = "The date of birth of a Member",
-            dataType = "java.time.LocalDate",
+            dataType = "java.lang.String",
             example = "2000-01-01",
             allowEmptyValue = false,
             required = true)
