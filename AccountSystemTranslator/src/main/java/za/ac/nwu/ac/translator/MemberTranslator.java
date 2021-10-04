@@ -8,4 +8,6 @@ import java.util.List;
 @Component
 public interface MemberTranslator {
     List<MemberDto> getAllMembers();
+
+    MemberDto create(MemberDto memberDto);
 }

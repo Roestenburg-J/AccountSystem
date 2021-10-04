@@ -17,6 +17,10 @@ public class Member implements Serializable {
     private String memSurname;
     private LocalDate memDOB;
 
+    public Member(){
+
+    }
+
     public Member(long memID, String memName, String memSurname, LocalDate memDOB) {
         this.memID = memID;
         this.memName = memName;
@@ -25,11 +29,14 @@ public class Member implements Serializable {
     }
 
     public Member(String memName, String memSurname, LocalDate memDob) {
+        this.memName = memName;
+        this.memSurname = memSurname;
+        this.memDOB = memDob;
     }
 
     @Id
-    @SequenceGenerator(name = "GENERIC_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
+    @SequenceGenerator(name = "MEM_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEM_SEQ")
     @Column(name = "MEM_ID")
     public long getMemID() {
         return memID;
