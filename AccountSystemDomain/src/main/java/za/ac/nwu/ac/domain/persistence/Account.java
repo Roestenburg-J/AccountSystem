@@ -17,6 +17,10 @@ public class Account implements Serializable {
     private AccountType type;
     private Member member;
 
+    public Account(){
+
+    }
+
     public Account(long accID, float accBalance, LocalDate startDate, AccountType type, Member member) {
         this.accID = accID;
         this.accBalance = accBalance;
@@ -25,9 +29,16 @@ public class Account implements Serializable {
         this.member = member;
     }
 
+    public Account(float accBalance, LocalDate startDate, AccountType type, Member member){
+        this.accBalance = accBalance;
+        this.startDate = startDate;
+        this.type = type;
+        this.member = member;
+    }
+
     @Id
-    @SequenceGenerator(name = "GENERIC_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
+    @SequenceGenerator(name = "ACC_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_SEQ")
     @Column(name = "ACC_ID")
     public long getAccID() {
         return accID;
