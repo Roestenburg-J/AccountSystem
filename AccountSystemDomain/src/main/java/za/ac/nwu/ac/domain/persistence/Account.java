@@ -14,26 +14,26 @@ public class Account implements Serializable {
     private long accID;
     private float accBalance;
     private LocalDate startDate;
-    private AccountType type;
-    private Member member;
+    private AccountType accType;
+    private Member accMember;
 
     public Account(){
 
     }
 
-    public Account(long accID, float accBalance, LocalDate startDate, AccountType type, Member member) {
+    public Account(long accID, float accBalance, LocalDate startDate, AccountType accType, Member accMember) {
         this.accID = accID;
         this.accBalance = accBalance;
         this.startDate = startDate;
-        this.type = type;
-        this.member = member;
+        this.accType = accType;
+        this.accMember = accMember;
     }
 
-    public Account(float accBalance, LocalDate startDate, AccountType type, Member member){
+    public Account(float accBalance, LocalDate startDate, AccountType accType, Member accMember){
         this.accBalance = accBalance;
         this.startDate = startDate;
-        this.type = type;
-        this.member = member;
+        this.accType = accType;
+        this.accMember = accMember;
     }
 
     @Id
@@ -56,14 +56,14 @@ public class Account implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_TYPE_ID")
-    public AccountType getType() {
-        return type;
+    public AccountType getAccType() {
+        return accType;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEM_ID")
-    public Member getMember() {
-        return member;
+    public Member getAccMember() {
+        return accMember;
     }
 
     public void setAccID(long accID) {
@@ -78,12 +78,12 @@ public class Account implements Serializable {
         this.startDate = startDate;
     }
 
-    public void setType(AccountType type) {
-        this.type = type;
+    public void setAccType(AccountType type) {
+        this.accType = accType;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setAccMember(Member member) {
+        this.accMember = accMember;
     }
 
     @Override
@@ -92,8 +92,8 @@ public class Account implements Serializable {
                 "accID=" + accID +
                 ", accBalance=" + accBalance +
                 ", startDate=" + startDate +
-                ", type=" + type +
-                ", member=" + member +
+                ", type=" + accType +
+                ", member=" + accMember +
                 '}';
     }
 
@@ -102,12 +102,12 @@ public class Account implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
         Account account = (Account) o;
-        return accID == account.accID && Float.compare(account.accBalance, accBalance) == 0 && startDate.equals(account.startDate) && type.equals(account.type) && member.equals(account.member);
+        return accID == account.accID && Float.compare(account.accBalance, accBalance) == 0 && startDate.equals(account.startDate) && accType.equals(account.accType) && accMember.equals(account.accMember);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accID, accBalance, startDate, type, member);
+        return Objects.hash(accID, accBalance, startDate, accType, accMember);
     }
 
 

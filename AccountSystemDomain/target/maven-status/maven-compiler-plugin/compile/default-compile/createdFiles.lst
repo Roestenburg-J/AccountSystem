@@ -2,6 +2,7 @@ za\ac\nwu\ac\domain\dto\AccountTypeDto.class
 za\ac\nwu\ac\domain\dto\MemberDto.class
 za\ac\nwu\ac\domain\persistence\Account.class
 za\ac\nwu\ac\domain\persistence\AccountTransaction.class
+za\ac\nwu\ac\domain\dto\AccountDto.class
 za\ac\nwu\ac\domain\persistence\AccountType.class
 za\ac\nwu\ac\domain\persistence\Member.class
 za\ac\nwu\ac\domain\service\GeneralResponse.class
