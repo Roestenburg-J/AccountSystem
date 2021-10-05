@@ -1,6 +1,7 @@
 package za.ac.nwu.ac.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.Account;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@JsonDeserialize
 @ApiModel(value = "Account", description = "A DTO that represents Accounts for the account system")
 public class AccountDto implements Serializable {
     private static final long serialVersionUID = 37681105632235880L;

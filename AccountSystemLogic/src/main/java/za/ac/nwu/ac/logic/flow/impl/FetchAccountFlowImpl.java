@@ -23,4 +23,19 @@ public class FetchAccountFlowImpl implements FetchAccountFlow {
     public List<AccountDto> getAllAccounts(){
         return accountTranslator.getAllAccounts();
     }
+
+    @Override
+    public AccountDto getBalanceForAccount(String id){
+        return accountTranslator.getBalanceForAccount(id);
+    }
+
+    @Override
+    public AccountDto subtractAccount(Long id, Float value){
+        return accountTranslator.subtractAccount(id, value);
+    }
+
+    @Override
+    public AccountDto addToAccount(Long id, Float value){
+        return accountTranslator.addToAccount(id, value);
+    }
 }

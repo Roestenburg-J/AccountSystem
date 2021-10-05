@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountDto;
 import za.ac.nwu.ac.domain.persistence.Account;
+import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.repo.persistence.AccountRepository;
 import za.ac.nwu.ac.translator.AccountTranslator;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class AccountTranslatorImpl implements AccountTranslator{
 
     private final AccountRepository accountRepository;
+
 
     @Autowired
     public AccountTranslatorImpl(AccountRepository accountRepository) {
@@ -42,6 +44,38 @@ public class AccountTranslatorImpl implements AccountTranslator{
             return new AccountDto(account);
         }catch (Exception e){
             throw new RuntimeException("Unable to save to the DB", e);
+        }
+    }
+
+    @Override
+    public AccountDto getBalanceForAccount(String id){
+
+        try {
+            Account account = accountRepository.getBalanceForAccount(id);
+            return new AccountDto(account);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
+    }
+
+
+    @Override
+    public AccountDto subtractAccount(Long id, Float value){
+        try {
+            Account account = accountRepository.subtractAccount(id, value);
+            return new AccountDto(account);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
+    }
+
+    @Override
+    public AccountDto addToAccount(Long id, Float value){
+        try {
+            Account account = accountRepository.addToAccount(id, value);
+            return new AccountDto(account);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
         }
     }
 }
