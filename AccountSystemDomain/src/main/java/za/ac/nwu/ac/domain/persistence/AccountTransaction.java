@@ -14,11 +14,20 @@ public class AccountTransaction implements Serializable {
 
     private long transactID;
     private LocalDate transactDate;
-    private String transactValue;
+    private float transactValue;
     private Account transactAccount;
 
-    public AccountTransaction(long transactID, LocalDate transactDate, String transactValue, Account transactAccount) {
+    public AccountTransaction(){
+
+    }
+    public AccountTransaction(long transactID, LocalDate transactDate, float transactValue, Account transactAccount) {
         this.transactID = transactID;
+        this.transactDate = transactDate;
+        this.transactValue = transactValue;
+        this.transactAccount = transactAccount;
+    }
+
+    public AccountTransaction(LocalDate transactDate, float transactValue, Account transactAccount){
         this.transactDate = transactDate;
         this.transactValue = transactValue;
         this.transactAccount = transactAccount;
@@ -46,11 +55,11 @@ public class AccountTransaction implements Serializable {
     }
 
     @Column(name = "ACC_TRANSACT_VALUE")
-    public String getTransactValue() {
+    public float getTransactValue() {
         return transactValue;
     }
 
-    public void setTransactValue(String transactValue) {
+    public void setTransactValue(float transactValue) {
         this.transactValue = transactValue;
     }
 
@@ -80,8 +89,9 @@ public class AccountTransaction implements Serializable {
         if (this == o) return true;
         if (!(o instanceof AccountTransaction)) return false;
         AccountTransaction that = (AccountTransaction) o;
-        return transactID == that.transactID && transactDate.equals(that.transactDate) && transactValue.equals(that.transactValue) && transactAccount.equals(that.transactAccount);
+        return transactID == that.transactID && Float.compare(that.transactValue, transactValue) == 0 && transactDate.equals(that.transactDate) && transactAccount.equals(that.transactAccount);
     }
+
 
     @Override
     public int hashCode() {
