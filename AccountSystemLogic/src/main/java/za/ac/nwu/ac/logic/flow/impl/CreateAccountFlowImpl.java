@@ -7,6 +7,7 @@ import za.ac.nwu.ac.logic.flow.CreateAccountFlow;
 import za.ac.nwu.ac.translator.AccountTranslator;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 @Transactional
 @Component("createAccountFlowName")
@@ -19,7 +20,7 @@ public class CreateAccountFlowImpl implements CreateAccountFlow {
     }
 
     @Override
-    public AccountDto create(AccountDto accountDto){
-        return accountTranslator.create(accountDto);
+    public AccountDto create(AccountDto account){
+        return accountTranslator.create(account);
     }
 }

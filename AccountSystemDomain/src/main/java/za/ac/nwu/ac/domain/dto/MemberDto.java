@@ -97,6 +97,15 @@ public class MemberDto implements Serializable {
         return Objects.hash(memName, memSurname, memDob);
     }
 
+    @Override
+    public String toString() {
+        return "MemberDto{" +
+                "memName='" + memName + '\'' +
+                ", memSurname='" + memSurname + '\'' +
+                ", memDob=" + memDob +
+                '}';
+    }
+
     @JsonIgnore
     public Member getMember(){
         return new Member(getMemName(), getMemSurname(), getMemDob());

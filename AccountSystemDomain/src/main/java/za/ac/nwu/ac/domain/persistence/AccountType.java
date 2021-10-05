@@ -84,4 +84,14 @@ public class AccountType implements Serializable {
     public int hashCode() {
         return Objects.hash(typeID, typeName, mnemonic);
     }
+
+    @Override
+    public String toString() {
+        return "AccountType{" +
+                "typeID=" + typeID +
+                ", typeName='" + typeName + '\'' +
+                ", mnemonic='" + mnemonic + '\'' +
+                ", accounts=" + accounts +
+                '}';
+    }
 }

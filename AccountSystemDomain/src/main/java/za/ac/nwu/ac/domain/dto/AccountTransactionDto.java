@@ -58,7 +58,7 @@ public class AccountTransactionDto implements Serializable {
         return transactValue;
     }
 
-    @ApiModelProperty(position = 1,
+    @ApiModelProperty(position = 3,
             value = "Account Transaction Account",
             name = "Account",
             notes = "Account of the transaction",

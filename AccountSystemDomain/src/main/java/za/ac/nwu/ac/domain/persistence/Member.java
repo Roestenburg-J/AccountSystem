@@ -1,6 +1,8 @@
 package za.ac.nwu.ac.domain.persistence;
 
 
+import lombok.AllArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;

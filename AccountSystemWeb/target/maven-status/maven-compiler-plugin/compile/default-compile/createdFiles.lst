@@ -3,4 +3,5 @@ za\ac\nwu\ac\web\sb\controller\AccountController.class
 za\ac\nwu\ac\web\sb\config\SwaggerConfiguration.class
 za\ac\nwu\ac\web\sb\controller\MemberController.class
 za\ac\nwu\ac\web\sb\controller\AccountTypeController.class
+za\ac\nwu\ac\web\sb\controller\AccountTransactionController.class
 za\ac\nwu\ac\web\sb\RestServiceApplication.class

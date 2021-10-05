@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.Account;
-import za.ac.nwu.ac.domain.persistence.AccountTransaction;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.domain.persistence.Member;
 
@@ -37,6 +36,7 @@ public class AccountDto implements Serializable {
         this.setAccType(account.getAccType());
         this.setAccMember(account.getAccMember());
     }
+
 
 
     @ApiModelProperty(position = 1,
@@ -79,7 +79,7 @@ public class AccountDto implements Serializable {
             value = "Account Member",
             name = "Member",
             notes = "Owner of the Account",
-            dataType = "java.lang.string",
+            dataType = "java.lang.String",
             example = "John, Stone, 2000-01-01",
             allowEmptyValue = false,
             required = true)
